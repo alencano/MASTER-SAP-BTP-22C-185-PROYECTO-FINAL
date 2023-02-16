@@ -1,0 +1,5 @@
+CLASS zcl_cd_i_items_aecr DEFINITION PUBLIC ABSTRACT FINAL FOR BEHAVIOR OF zcd_i_header_aecr.
+ENDCLASS.
+
+CLASS zcl_cd_i_items_aecr IMPLEMENTATION.
+ENDCLASS.

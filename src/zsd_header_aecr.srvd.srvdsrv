@@ -1,0 +1,5 @@
+@EndUserText.label: 'Sales Order - Service Definition'
+define service ZSD_HEADER_AECR {
+  expose ZCD_C_HEADER_AECR as Header;
+  expose ZCD_C_ITEMS_AECR as Items;
+}

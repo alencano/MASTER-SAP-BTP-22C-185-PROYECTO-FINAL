@@ -1,0 +1,33 @@
+managed; // implementation in class zbp_cd_i_header_aecr unique;
+//strict ( 1 ); //Uncomment this line in order to enable strict mode 2. The strict mode has two variants (strict(1), strict(2)) and is prerequisite to be future proof regarding syntax and to be able to release your BO.
+
+define behavior for ZCD_I_HEADER_AECR alias Header
+implementation in class zcl_cd_i_header_aecr unique
+persistent table ZHEADER_AECR
+lock master
+authorization master ( instance )
+//etag master <field_name>
+{
+  field ( mandatory ) Id, email;
+  field ( features : instance ) Id;
+//  field ( readonly  ) Createon;
+  create;
+  update;
+  delete;
+  association _Items { create; }
+  mapping for zheader_aecr corresponding;
+}
+
+define behavior for ZCD_I_ITEMS_AECR alias Items
+implementation in class zcl_cd_i_items_aecr unique
+persistent table ZITEMS_AECR
+lock dependent by _Header
+authorization dependent by _Header
+//etag master <field_name>
+{
+  update;
+  delete;
+  field ( readonly ) Id;
+  association _Header;
+  mapping for zitems_aecr corresponding;
+}

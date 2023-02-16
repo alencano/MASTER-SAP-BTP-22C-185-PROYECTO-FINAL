@@ -4,8 +4,8 @@
 @AccessControl.authorizationCheck: #NOT_REQUIRED
 @EndUserText.label: 'Sales Order Intems - CDS Interface'
 define view ZCD_I_ITEMS_AECR
-  as select from zitems_aecr as items
-  association to parent ZCD_I_HEADER_AECR as _header on $projection.Id = _header.Id
+  as select from zitems_aecr as Items
+  association to parent ZCD_I_HEADER_AECR as _Header on $projection.Id = _Header.Id
 {
   key id               as Id,
       name             as Name,
@@ -21,5 +21,5 @@ define view ZCD_I_ITEMS_AECR
       quantity         as Quantity,
       @Semantics.unitOfMeasure : true
       unitofmeasure    as Unitofmeasure,
-      _header
+      _Header
 }
